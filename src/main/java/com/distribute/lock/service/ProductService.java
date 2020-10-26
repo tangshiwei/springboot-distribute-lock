@@ -1,7 +1,6 @@
 package com.distribute.lock.service;
 
 import com.distribute.lock.bean.Product;
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
