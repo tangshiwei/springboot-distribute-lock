@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Transactional;
 
 public class ProductService {
 
@@ -15,6 +16,8 @@ public class ProductService {
     private TransactionDefinition transactionDefinition;
 
     //分布式锁
+
+    //@Transactional(rollbackFor = Exception.class)
     public synchronized void updateProduct(Product product){
         //手动事务
         TransactionStatus transaction = platformTransactionManager.getTransaction(transactionDefinition);
@@ -22,7 +25,6 @@ public class ProductService {
         if(product==null||product.getCount()<1){
             platformTransactionManager.rollback(transaction);
             throw new RuntimeException();
-
         }
         //更新数量
         product.setCount(product.getCount()-1);
