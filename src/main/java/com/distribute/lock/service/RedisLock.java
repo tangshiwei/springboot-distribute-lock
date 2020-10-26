@@ -13,7 +13,7 @@ import java.util.UUID;
 /**
  * Redis实现分布式锁
  */
-public class RedisLock {
+public class RedisLock implements AutoCloseable{
     private RedisTemplate redisTemplate;
     private String key;
     private String value;
@@ -64,4 +64,12 @@ public class RedisLock {
         return result;
     }
 
+    /**
+     * 自动关闭功能(IO流等)
+     * @throws Exception
+     */
+    @Override
+    public void close() throws Exception {
+        unLock();
+    }
 }
