@@ -5,7 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.annotation.Transactional;
+
+
+/**
+ * 分布式锁实现方式：
+ * 1.数据库实现：select for update语句。(锁定数据)
+ * 2.redis实现：
+ */
 
 public class ProductService {
 
