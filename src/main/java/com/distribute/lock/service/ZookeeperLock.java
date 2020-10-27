@@ -10,7 +10,6 @@ import java.util.Collections;
 import java.util.List;
 
 @Slf4j
-@Service
 public class ZookeeperLock implements AutoCloseable, Watcher {
 
     private ZooKeeper zooKeeper;
