@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
+ * 分布式锁实现方式：
  * Redis实现分布式锁
  */
 public class RedisLock implements AutoCloseable{

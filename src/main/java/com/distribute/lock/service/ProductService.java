@@ -10,7 +10,6 @@ import org.springframework.transaction.TransactionStatus;
 /**
  * 分布式锁实现方式：
  * 1.数据库实现：select for update语句。(锁定数据)
- * 2.redis实现：
  */
 
 public class ProductService {
@@ -36,6 +35,7 @@ public class ProductService {
         update(product);
         //提交
         platformTransactionManager.commit(transaction);
+
     }
 
     private void update(Product product){
