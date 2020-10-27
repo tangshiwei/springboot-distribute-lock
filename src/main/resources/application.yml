@@ -2,8 +2,26 @@ server:
   port: 8080
 
 spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  jpa:
+    ##指定数据库
+    database: mysql
+    ##是否显示执行sql语句
+    show-sql: true
+    hibernate:
+      naming:
+        ##字段映射规则
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ##自动更新数据库表,若需要创建表则改为create
+      ddl-auto: update
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/spring-boot-demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: root
+    url: jdbc:mysql://localhost:3306/web_db?serverTimezone=UTC&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+
+  redis:
+    password: 123456
+    port: 6379
+    host: localhost
